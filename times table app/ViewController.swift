@@ -15,7 +15,10 @@ class ViewController: UIViewController, UITableViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    var cellContent = ["john", "jacob", "jingleheimer", "schmidt"]
+    
+    @IBOutlet weak var table: UITableView!
+    
+    var cellContent = [0]
 
     @IBOutlet weak var sliderValue: UISlider!
     
@@ -23,25 +26,34 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func sliderMoved(sender: AnyObject) {
         print(sliderValue)
+        
+        cellContent = [0]
+        
         let factor = Int(sliderValue.value) // convert Float to Int to shave off decimal
         multiplyLabel.text = "Multiplying by \(factor)"
         
-        var x = 0
+        var x = 1
         
         while (x <= 20) {
             
-//            cellContent = ["john", "jacob", "jingleheimer", "schmidt"]
+            cellContent.append(factor * x)
             x++
         }
+        
+        table.reloadData()
     }
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let factor = Int(sliderValue.value) // convert Float to Int to shave off decimal
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = cellContent[indexPath.row]
+        let rowText = "\(indexPath.row) times \(factor) equals \(String(cellContent[indexPath.row]))"
+        cell.textLabel?.text = rowText
         return cell
     }
     

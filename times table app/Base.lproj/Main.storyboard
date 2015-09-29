@@ -26,7 +26,7 @@
                                     <navigationItem title="Multiplication Tables" id="pTv-Ec-Akr"/>
                                 </items>
                             </navigationBar>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="q9m-LN-cNG">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.5" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="q9m-LN-cNG">
                                 <rect key="frame" x="18" y="84" width="564" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fzT-1i-laj"/>
@@ -63,6 +63,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="nXx-Ok-4IE"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="MVE-DQ-tsZ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -78,6 +82,7 @@
                     <connections>
                         <outlet property="multiplyLabel" destination="jXg-Vq-aa0" id="UzR-60-Cd0"/>
                         <outlet property="sliderValue" destination="q9m-LN-cNG" id="fuj-hH-9Xe"/>
+                        <outlet property="table" destination="d0A-8g-fGC" id="QmQ-83-8NA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
